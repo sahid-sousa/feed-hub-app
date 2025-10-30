@@ -1,0 +1,5 @@
+<app-navbar class="top-bar" (sidebarToggle)="onSidebarToggle()"></app-navbar>
+<app-sidebar class="top-bar__side-bar" [class.open]="isSidebarOpen"></app-sidebar>
+<div class="top-bar__content-section">
+  <router-outlet></router-outlet>
+</div>
