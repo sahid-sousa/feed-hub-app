@@ -20,6 +20,7 @@ export class AuthGuard implements CanActivate {
     const isTokenExpired = this.authService.isTokenExpired();
     if (isAuthenticated) {
       if (isTokenExpired) {
+        this.authService.removeAuthUser();
         return this.router.navigate(['/']);
       } else {
         return true;

@@ -10,7 +10,7 @@
           <div class="card bg-primary text-white mb-4">
             <div class="card-body">
               <p class="card-title">Feedbacks</p>
-              <h1 class="card-title">100</h1>
+              <h1 class="card-title">{{ dashboardResponse?.feedbacks }}</h1>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
               <a class="small text-white stretched-link" routerLink="/pages/feedbacks">View Details</a>
@@ -22,7 +22,7 @@
           <div class="card bg-success text-white mb-4">
             <div class="card-body">
               <p class="card-title">Comments</p>
-              <h1 class="card-title">100</h1>
+              <h1 class="card-title">{{ dashboardResponse?.comments }}</h1>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
               <a class="small text-white stretched-link" href="#">View Details</a>
@@ -38,6 +38,7 @@
           <highcharts-chart
             [Highcharts]="Highcharts"
             [options]="chartOptionsArea"
+            [(update)]="updateFlag"
             class="charts-root-highcharts-chart">
           </highcharts-chart>
         </div>
@@ -46,18 +47,8 @@
         <div class="charts-root">
           <highcharts-chart
             [Highcharts]="Highcharts"
-            [options]="chartOptionsColumn"
-            class="charts-root-highcharts-chart">
-          </highcharts-chart>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xl-12">
-        <div class="charts-root">
-          <highcharts-chart
-            [Highcharts]="Highcharts"
             [options]="chartOptionsLine"
+            [(update)]="updateFlag"
             class="charts-root-highcharts-chart">
           </highcharts-chart>
         </div>
