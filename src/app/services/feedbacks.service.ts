@@ -3,12 +3,14 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {StorageService} from './storage.service';
 import {User} from './user.model';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FeedbacksService {
-  private apiUrl = 'http://localhost:8085';
+
+  private apiUrl: string = environment.apiUrl;
 
   constructor(
     private http: HttpClient,
@@ -32,6 +34,15 @@ export class FeedbacksService {
       'Authorization': `Bearer ${user.token}`
     });
     return this.http.get<any>(`${this.apiUrl}/feedback/list`, {params, headers})
+  }
+
+  getFeedback(id: number) : Observable<any> {
+    const user: User = JSON.parse(<string>this.storage.getAuthUser());
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${user.token}`
+    });
+    return this.http.get(`${this.apiUrl}/feedback/find/${id}`, {headers})
   }
 
   create(title: string, description: string, category: string) : Observable<any> {
@@ -60,10 +71,11 @@ export class FeedbacksService {
     return this.http.get(`${this.apiUrl}/feedback/find/${id}`, { headers })
   }
 
-  edit(title: string, description: string, category: string) : Observable<any> {
+  edit(id: number, title: string, description: string, category: string) : Observable<any> {
     const user: User = JSON.parse(<string>this.storage.getAuthUser());
     const currentDate = new Date();
     const updateFeedback = {
+      id,
       title,
       description,
       category,

@@ -8,6 +8,7 @@ import {RegisterComponent} from './register/register.component';
 import {FeedbackCreateComponent} from './feedbacks/feedback-create/feedback-create.component';
 import {FeedbackShowComponent} from './feedbacks/feedback-show/feedback-show.component';
 import {CommentsComponent} from './comments/comments.component';
+import {FeedbackEditComponent} from './feedbacks/feedback-edit/feedback-edit.component';
 
 export const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -21,6 +22,7 @@ export const routes: Routes = [
       { path: 'feedbacks', component: FeedbacksComponent },
       { path: 'feedbacks/create', component: FeedbackCreateComponent },
       { path: 'feedbacks/show/:id', component: FeedbackShowComponent },
+      { path: 'feedbacks/edit/:id', component: FeedbackEditComponent },
       { path: 'comments', component: CommentsComponent },
     ],
     canActivate: [AuthGuard]

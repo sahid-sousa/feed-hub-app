@@ -49,8 +49,6 @@ export class FeedbackCreateComponent {
     }
   }
 
-  protected readonly Math = Math;
-
   feebacks() {
     this.router.navigate(['/pages/feedbacks']).then();
   }

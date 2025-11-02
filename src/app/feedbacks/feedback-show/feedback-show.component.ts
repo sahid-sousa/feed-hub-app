@@ -18,6 +18,7 @@ export class FeedbackShowComponent implements OnInit {
   @ViewChild('toast') toast!: ToastComponent;
 
   feedback = {
+    id: '',
     title: '',
     description: '',
     category: '',
@@ -40,7 +41,7 @@ export class FeedbackShowComponent implements OnInit {
     }
     this.feedbacksService.show(id).subscribe({
       next: (result) : void => {
-        console.table(result)
+        this.feedback.id = result.id;
         this.feedback.title = result.title;
         this.feedback.description = result.description;
         this.feedback.category = result.category;
@@ -56,4 +57,11 @@ export class FeedbackShowComponent implements OnInit {
     this.router.navigate(['/pages/feedbacks']).then();
   }
 
+  edit(id: string): void {
+    this.router.navigate(['/pages/feedbacks/edit', id]).then(success => {
+      if (!success) {
+        this.toast.show("Redirect error", 'danger');
+      }
+    });
+  }
 }

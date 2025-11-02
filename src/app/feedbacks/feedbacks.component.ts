@@ -76,7 +76,6 @@ export class FeedbacksComponent implements OnInit {
   }
 
   show(id: number) {
-    console.log("show", id);
     this.router.navigate(['/pages/feedbacks/show', id]).then(success => {
       if (!success) {
         this.toast.show("Redirect error", 'danger');
@@ -85,7 +84,11 @@ export class FeedbacksComponent implements OnInit {
   }
 
   edit(id: number) {
-    console.log("edit", id);
+    this.router.navigate(['/pages/feedbacks/edit', id]).then(success => {
+      if (!success) {
+        this.toast.show("Redirect error", 'danger');
+      }
+    });
   }
 
   create() {

@@ -1,0 +1,67 @@
+<div id="layoutSidenav_content">
+  <main>
+    <div class="container-fluid px-4">
+      <div class="d-flex justify-content-between align-items-center mt-4 mb-3">
+        <h1 class="mt-4">Edit Feedback</h1>
+        <button type="button" class="btn btn-success" (click)="feebacks()">
+          <i class="bi bi-plus-circle"></i> Feedbacks
+        </button>
+      </div>
+      <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Edit Feedback</li>
+      </ol>
+      <div class="row">
+        <form [formGroup]="editForm" (ngSubmit)="edit()" id="searchForm" class="mb-4">
+          <input
+            class="form-control"
+            id="id"
+            type="hidden"
+            required
+            formControlName="id"
+            [class.is-invalid]="editForm.get('id')?.invalid && (editForm.get('id')?.touched || editForm.get('id')?.dirty)"
+          />
+          <div class="mb-3 form-floating">
+            <input
+              class="form-control"
+              id="title"
+              type="text"
+              required
+              formControlName="title"
+              [class.is-invalid]="editForm.get('title')?.invalid && (editForm.get('title')?.touched || editForm.get('title')?.dirty)"
+            />
+            <label for="title">Title</label>
+          </div>
+          <div class="mb-3 form-floating">
+            <textarea
+              class="form-control rules-textarea h-50"
+              id="description"
+              type="description"
+              required
+              formControlName="description"
+              rows="5"
+              [class.is-invalid]="editForm.get('description')?.invalid && (editForm.get('description')?.touched || editForm.get('description')?.dirty)"
+            ></textarea>
+            <label for="description">Description</label>
+          </div>
+          <div class="mb-3 form-floating">
+            <select id="category" class="form-control" required
+                    [class.is-invalid]="editForm.get('category')?.invalid && (editForm.get('category')?.touched || editForm.get('category')?.dirty)"
+                    formControlName="category">
+              <option value="">Select a category</option>
+              <option value="BUG">Bug</option>
+              <option value="SUGGESTION">Suggestion</option>
+              <option value="QUESTION">Question</option>
+              <option value="OTHER">Other</option>
+            </select>
+            <label for="category" >Category</label>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Edit Feedback</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+  <app-footer></app-footer>
+</div>
+<app-toast #toast></app-toast>

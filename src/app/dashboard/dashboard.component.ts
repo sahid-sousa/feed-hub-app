@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FooterComponent} from '../footer/footer.component';
-import { HighchartsChartModule } from "highcharts-angular";
+import {HighchartsChartModule} from "highcharts-angular";
 import Highcharts from 'highcharts';
 import {RouterLink} from '@angular/router';
 import {DashboardService} from '../services/dashboard.service';
-import {DashboardResponse, getMesPorNumero} from '../services/dashboard.model';
+import {DashboardResponse} from '../services/dashboard.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -65,8 +65,6 @@ export class DashboardComponent implements OnInit {
       this.feedbackMonthCounts = this.dashboardResponse.feedbackMonthCounts.map(f => f.count);
     }
 
-    console.log(this.feedbackMonthCounts);
-
     if (this.dashboardResponse?.commentMonthCounts) {
       this.commentMonthCounts = this.dashboardResponse.commentMonthCounts.map(c => c.count);
     }
@@ -80,7 +78,6 @@ export class DashboardComponent implements OnInit {
       title: { text: 'Comments' },
       series: [{ type: 'line', data: [...this.feedbackMonthCounts] }]
     };
-
 
     this.updateFlag = true;
   }

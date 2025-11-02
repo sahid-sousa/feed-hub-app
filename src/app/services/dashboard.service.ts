@@ -4,12 +4,14 @@ import {StorageService} from './storage.service';
 import {User} from './user.model';
 import {Observable} from 'rxjs';
 import {Mes} from './dashboard.model';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
-  private apiUrl = 'http://localhost:8085';
+
+  private apiUrl: string = environment.apiUrl;
 
   constructor(
     private http: HttpClient,
@@ -37,10 +39,6 @@ export class DashboardService {
     let params = new HttpParams()
       .set('startMonth', startMonth)
       .set('endMonth', endMonth);
-
-    console.log(month);
-    console.log(startMonth);
-    console.log(endMonth);
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',

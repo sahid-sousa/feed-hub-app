@@ -5,14 +5,14 @@
     grid-area: sidebar;
     width: 0;
     transition: width 0.3s ease;
-    overflow-x: hidden; // Add this to hide overflow content
-    white-space: nowrap; // Add this to prevent text wrapping
+    overflow-x: hidden;
+    white-space: nowrap;
 
     &.open {
       width: 250px;
     }
 
-    // Add these styles to handle content visibility
+
     .sidebar-content {
       opacity: 0;
       visibility: hidden;
@@ -27,7 +27,7 @@
 
   &__content-section {
     grid-area: content;
-    // padding: 8px;
+    padding: 8px;
     transition: margin-left 0.3s ease;
   }
 }
@@ -41,5 +41,6 @@
   grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr;
   height: 100vh;
-  overflow-x: hidden; // Add this to prevent horizontal scrollbar
+  overflow-x: hidden;
 }
+
