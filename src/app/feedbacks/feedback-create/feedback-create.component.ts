@@ -13,7 +13,8 @@ import {Router} from '@angular/router';
     ToastComponent
   ],
   templateUrl: './feedback-create.component.html',
-  styleUrl: './feedback-create.component.scss'
+  styleUrl: './feedback-create.component.scss',
+  standalone: true
 })
 export class FeedbackCreateComponent {
 

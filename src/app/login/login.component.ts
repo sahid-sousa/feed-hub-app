@@ -12,7 +12,8 @@ import { ToastComponent } from '../shared/toast/toast.component';
     RouterLink
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
+  standalone: true,
 })
 export class LoginComponent {
 

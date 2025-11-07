@@ -12,6 +12,7 @@ import {ToastComponent} from '../shared/toast/toast.component';
     SidebarComponent
   ],
   templateUrl: './template.component.html',
+  standalone: true,
   styleUrl: './template.component.scss'
 })
 export class TemplateComponent {

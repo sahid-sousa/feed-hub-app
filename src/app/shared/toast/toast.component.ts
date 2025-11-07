@@ -9,9 +9,10 @@ declare var bootstrap: any;
     NgClass
   ],
   templateUrl: './toast.component.html',
+  standalone: true,
   styleUrl: './toast.component.scss'
 })
-export class ToastComponent implements AfterViewInit{
+export class ToastComponent implements AfterViewInit {
   @ViewChild('liveToast', { static: true }) toastEl!: ElementRef;
   message: string = '';
   toastClass = 'text-bg-info';

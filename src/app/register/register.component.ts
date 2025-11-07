@@ -19,9 +19,12 @@ import { ToastComponent } from '../shared/toast/toast.component';
     ToastComponent
   ],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.scss'
+  styleUrl: './register.component.scss',
+  standalone: true
 })
 export class RegisterComponent {
+
+  currentYear = new Date().getFullYear();
 
   @ViewChild('toast') toast!: ToastComponent;
 

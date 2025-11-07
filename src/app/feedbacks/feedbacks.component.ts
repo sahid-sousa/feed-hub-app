@@ -16,6 +16,7 @@ import {ToastComponent} from '../shared/toast/toast.component';
     NgIf
   ],
   templateUrl: './feedbacks.component.html',
+  standalone: true,
   styleUrl: './feedbacks.component.scss'
 })
 export class FeedbacksComponent implements OnInit {

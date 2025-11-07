@@ -14,7 +14,8 @@ import {DashboardResponse} from '../services/dashboard.model';
     RouterLink
   ],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+  styleUrl: './dashboard.component.scss',
+  standalone: true
 })
 export class DashboardComponent implements OnInit {
 

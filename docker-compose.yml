@@ -1,0 +1,15 @@
+services:
+  feed-hub-app:
+    container_name: feed-hub-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    networks:
+      - apps_network
+networks:
+  apps_network:
+    driver: bridge
+

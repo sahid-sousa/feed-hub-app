@@ -13,6 +13,7 @@ import {ActivatedRoute, Router} from '@angular/router';
     ToastComponent
   ],
   templateUrl: './feedback-edit.component.html',
+  standalone: true,
   styleUrl: './feedback-edit.component.scss'
 })
 export class FeedbackEditComponent implements OnInit {

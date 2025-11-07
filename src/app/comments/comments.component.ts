@@ -4,11 +4,12 @@ import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-comments',
-    imports: [
-        FooterComponent
-    ],
+  imports: [
+    FooterComponent
+  ],
   templateUrl: './comments.component.html',
-  styleUrl: './comments.component.scss'
+  styleUrl: './comments.component.scss',
+  standalone: true
 })
 export class CommentsComponent {
 
