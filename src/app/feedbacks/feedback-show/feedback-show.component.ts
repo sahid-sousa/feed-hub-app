@@ -130,7 +130,6 @@ export class FeedbackShowComponent implements OnInit, AfterViewInit {
   }
 
   addComment(): void {
-    const feedbackId = this.addCommentForm.get('feedbackId')?.value;
     const content = this.addCommentForm.get('content')?.value;
     this.commentService.create(this.feedback.id, content).subscribe({
       next: () => {
